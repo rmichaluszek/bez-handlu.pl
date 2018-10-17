@@ -158,6 +158,10 @@ body, html {
     transition: 0.1s ease-out;
     margin-top: 2px;
 }
+.arrow:active {
+    transition: 0.1s ease-out;
+    margin-top: 4px;
+}
 
 #arrowLeft {
     left: 40px;    
@@ -169,8 +173,6 @@ body, html {
     z-index: 9;
     filter: brightness(10%);
 }
-
-
 #arrowRight {
     right: 40px;
     -webkit-transform: scaleX(-1);
