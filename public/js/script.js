@@ -29,8 +29,3 @@ function slideToTheLeft() {
         window.setTimeout(function(){shouldIWait = false}, 350); // wait for the animations to end
     }
 }
-
-
-function getData() {
-
-}
