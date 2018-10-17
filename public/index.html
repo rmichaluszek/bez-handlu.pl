@@ -1,0 +1,76 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Niedziele bez handlu</title>
+    <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+
+    <div id="topbar">
+        Niedziele bez handlu
+    </div>
+
+    <div id="arrows">
+        <img onclick="slideToTheLeft()" id="arrowLeft" class="arrow" src="img/arrow.png">
+        <img id="arrowLeftShadow" class="arrow" src="img/arrow.png">
+        <img onclick="slideToTheRight()" id="arrowRight" class="arrow" src="img/arrow.png">
+        <img id="arrowRightShadow" class="arrow" src="img/arrow.png">
+    </div>
+
+    <div id="page-container">
+
+        <div class="page-content current">
+
+                <div class="page-content-month-name">Październik</div>
+
+                <div class="square-container"> <!-- These empty comments below are to remove whitespaces in inline-blocks elements -->
+                    <div class="day-square day-square-avaible">7</div><!--
+                --><div class="day-square day-square-closed">14</div><!--
+                --><div class="day-square day-square-avaible">21</div><!--
+                --><div class="day-square day-square-closed">28</div>
+                </div>
+
+        </div>
+
+        <div class="page-content left"> 
+                <!-- Set to left by default to hide if from viewer -->
+                <!-- It will be used next time when left arrow is pressed and switch positions with 'current' page content -->
+                <div class="page-content-month-name">Listopad</div>
+        
+                <div class="square-container"> <!-- These empty comments below are to remove whitespaces in inline-blocks elements -->
+                    <div class="day-square day-square-avaible">7</div><!--
+                 --><div class="day-square day-square-closed">14</div><!--
+                 --><div class="day-square day-square-avaible">21</div><!--
+                 --><div class="day-square day-square-closed">28</div>
+                </div>
+        
+        </div>
+
+        <div class="page-content right"> 
+                <!-- Set to right by default to hide if from viewer -->
+                <!-- It will be used next time when right arrow is pressed and switch positions with 'current' page content -->
+                <div class="page-content-month-name">Listopad</div>
+        
+                <div class="square-container"> <!-- These empty comments below are to remove whitespaces in inline-blocks elements -->
+                    <div class="day-square day-square-avaible">7</div><!--
+                 --><div class="day-square day-square-closed">14</div><!--
+                 --><div class="day-square day-square-avaible">21</div><!--
+                 --><div class="day-square day-square-closed">28</div>
+                </div>
+        
+        </div>
+
+    </div>
+
+    
+
+
+    <script src="script.js"></script> <!-- Getting info via ajax and changing slides upon pressing the arrows -->
+
+</body>
+
+</html>

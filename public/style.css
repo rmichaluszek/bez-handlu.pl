@@ -1,0 +1,187 @@
+body, html {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Rubik', sans-serif;
+}
+
+#topbar {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+
+    background-color: white;
+
+    padding-left: 20px;
+    padding-right: 20px;
+
+    box-shadow: 0px 3px 0px rgba(0,0,0,0.2);
+
+    font-size: 1.2em;
+    font-weight: 900;
+
+    color: #111122;
+
+    position: fixed;
+
+    z-index: 99;
+
+    box-sizing: border-box;
+}
+
+#page-container {
+    width: 100%;
+    height: 100%;
+
+    padding-top: 50px;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+
+    position: relative;
+
+    background-color: #ff9f43;
+}
+
+.page-content {
+    width: 100%;
+    max-width: 1280px;
+    height: 300px;
+
+    margin: auto;
+
+    overflow: hidden;
+    position: absolute;
+
+    padding: 10px 20px;
+
+    box-sizing: border-box;
+
+    text-align:center;
+}
+
+
+/* Page content states */
+
+.current {
+    top: 50px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    transition: 0.45s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.right {
+    top: 50px;
+    left: 100%;
+    bottom: 0;
+    right: -100%;
+    transition: 0.45s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.left {
+    top: 50px;
+    left: -100%;
+    bottom: 0;
+    right: 100%;
+    transition: 0.45s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.hidden {
+    z-index: -1;
+}
+
+.square-container {
+    margin: auto;
+    width: 100%;
+}
+
+.page-content-month-name {
+    color: #222233;
+    text-align: center;
+    
+    font-size: 2em;
+    font-weight: bold;
+
+    margin-bottom: 40px;
+}
+
+
+.day-square {
+    width: 150px;
+    height: 150px;
+
+    line-height: 150px;
+    text-align: center;
+
+    border-radius: 10px 40px;
+
+    background-color: white;
+    color: white;
+
+    box-shadow: 0px 4px 0px rgba(0,0,0,0.2);
+
+    overflow: hidden;
+
+    font-weight: 900;
+    font-size: 3em;
+
+    margin-left: 20px;
+    margin-right: 20px;
+
+    display:inline-block; 
+}
+
+.day-square-avaible {
+    background-color: #2ed573;
+
+}
+.day-square-closed {
+    background-color: #ff6348;
+}
+
+
+/* Arrows */
+
+.arrow {
+    position: absolute;
+
+    top: 50%;
+    margin-top: 0px;
+
+    width: 50px;
+    z-index: 10;
+    
+    overflow: auto;
+    cursor: pointer;
+
+    transition: 0.1s ease-out;
+}
+.arrow:hover {
+    transition: 0.1s ease-out;
+    margin-top: 2px;
+}
+
+#arrowLeft {
+    left: 40px;    
+}
+#arrowLeftShadow {
+    left: 40px;
+    padding-top: 4px;   
+    opacity: 0.3;
+    z-index: 9;
+    filter: brightness(10%);
+}
+
+
+#arrowRight {
+    right: 40px;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+#arrowRightShadow {
+    right: 40px;
+    padding-top: 4px;   
+    opacity: 0.3;
+    z-index: 9;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: brightness(10%);
+}
