@@ -1,0 +1,23 @@
+{
+  "name": "niedziele-bez-handlu",
+  "version": "1.0.0",
+  "description": "Simple page that shows which sundays are trade-free",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vunnysher/niedziele-bez-handlu.git"
+  },
+  "author": "Rafał Michałuszek (vunnysher)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vunnysher/niedziele-bez-handlu/issues"
+  },
+  "homepage": "https://github.com/vunnysher/niedziele-bez-handlu#readme"
+}
