@@ -3,7 +3,13 @@ body, html {
     padding: 0px;
     font-family: 'Rubik', sans-serif;
 }
-
+a{
+    text-decoration: none;
+    color: #192a56;
+}
+a:hover {
+    color: #273c75;
+}
 h3 {
     color: rgba(20,20,40,0.9);
 }
@@ -159,7 +165,8 @@ h4 {
     overflow: auto;
     cursor: pointer;
 
-    transition: 0.1s ease-out;
+    transition: all 0.1s ease-out;
+    filter: brightness(100%);
 }
 .arrow:hover {
     transition: 0.1s ease-out;
@@ -170,16 +177,28 @@ h4 {
     margin-top: 4px;
 }
 
+.arrowShadow {
+    position: absolute;
+
+    top: 50%;
+    margin-top: 0px;
+
+    width: 50px;
+    z-index: 10;
+ 
+}
+
 #arrowLeft {
     left: 40px;    
 }
 #arrowLeftShadow {
     left: 40px;
-    padding-top: 4px;   
+    padding-top: 4px;
     opacity: 0.3;
     z-index: 9;
     filter: brightness(10%);
 }
+
 #arrowRight {
     right: 40px;
     -webkit-transform: scaleX(-1);
@@ -193,4 +212,14 @@ h4 {
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
     filter: brightness(10%);
+}
+
+
+.arrowDeactivated {
+    filter: brightness(60%);
+    transition: all 1s ease;
+}
+.arrowDeactivated {
+    cursor: default !important;
+    margin-top: 0px !important;
 }
