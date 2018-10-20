@@ -22,7 +22,9 @@ function slideToTheRight() {
             currentMonthDisplaying = 0;
             currentYearDisplaying++;
         }
-        spawnDays();
+        if(daysData[currentYearDisplaying]==null || daysData[currentYearDisplaying][currentMonthDisplaying].length == 1) // that means there is no info about trade-off days yet
+            spawnNoDaysAvaibleInfo();
+        else spawnDays();
     }
 }
 
@@ -45,7 +47,9 @@ function slideToTheLeft() {
             currentMonthDisplaying = 11;
             currentYearDisplaying--;
         }
-        spawnDays();
+        if(daysData[currentYearDisplaying]==null || daysData[currentYearDisplaying][currentMonthDisplaying].length == 1) // that means there is no info about trade-off days yet
+            spawnTheLawStartInfo();
+        else spawnDays();
     }
     
 }
@@ -53,8 +57,8 @@ function slideToTheLeft() {
 function spawnDays() {
     var currentPageContentContainer = document.getElementsByClassName("current")[0];
     var daysContainer = currentPageContentContainer.getElementsByClassName("square-container")[0];
-
-    currentPageContentContainer.getElementsByClassName("page-content-month-name")[0].innerHTML = monthsNames[currentMonthDisplaying];
+ 
+    currentPageContentContainer.getElementsByClassName("page-content-month-name")[0].innerHTML = monthsNames[currentMonthDisplaying] +" "+ currentYearDisplaying;
     daysContainer.innerHTML = "";
 
     for( var day = 0 ; day < daysData[currentYearDisplaying][currentMonthDisplaying].length; day++ ) {
@@ -64,11 +68,30 @@ function spawnDays() {
     }
 }
 
+function spawnNoDaysAvaibleInfo() {
+    var currentPageContentContainer = document.getElementsByClassName("current")[0];
+    var daysContainer = currentPageContentContainer.getElementsByClassName("square-container")[0];
+ 
+    currentPageContentContainer.getElementsByClassName("page-content-month-name")[0].innerHTML = monthsNames[currentMonthDisplaying] +" "+ currentYearDisplaying;
+    daysContainer.innerHTML = "";
+    daysContainer.innerHTML += "<h3>Jeszcze nie ma informacji o niedzielach bez handlu na ten miesiąc.</br></h3>"
+    daysContainer.innerHTML += "<h4>Zostaną one dodane wraz z pojawieniem się dat.</br></h4>"
+}
+function spawnTheLawStartInfo() {
+    var currentPageContentContainer = document.getElementsByClassName("current")[0];
+    var daysContainer = currentPageContentContainer.getElementsByClassName("square-container")[0];
+ 
+    currentPageContentContainer.getElementsByClassName("page-content-month-name")[0].innerHTML = monthsNames[currentMonthDisplaying] +" "+ currentYearDisplaying;
+    daysContainer.innerHTML = "";
+    daysContainer.innerHTML += "<h3>W tym czasie ustawa <a href='https://orka.sejm.gov.pl/proc8.nsf/ustawy/870_u.htm'>o ograniczeniu handlu w niedziele i święta oraz w niektóre inne dni</a> nie była jeszcze wdrożona.</br></h3>"
+    daysContainer.innerHTML += "<h4>Zaczęła ona działać z dniem <b>10 Stycznia 2018 r.</b> i obowiązuje aż do teraz.</br></h4>"
+}
+
 function getServerData() {
 
     const http = new XMLHttpRequest()
 
-    http.open("GET", "http://localhost:8080/api/get-data?2018")
+    http.open("GET", "http://localhost:8080/api/get-data")
     http.send()
     
     http.onload = () => {
