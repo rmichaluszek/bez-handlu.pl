@@ -106,6 +106,7 @@ function spawnNoDaysAvaibleInfo() {
     rightArrow.style.pointerEvents = 'none'; 
     rightArrowDeactivated = true;
 }
+
 function spawnTheLawStartInfo() {
     var currentPageContentContainer = document.getElementsByClassName("current")[0];
     var daysContainer = currentPageContentContainer.getElementsByClassName("square-container")[0];
@@ -131,8 +132,16 @@ function getServerData() {
     
     http.onload = () => {
         daysData = JSON.parse(http.responseText);
+        getCurrentMonthAndYear();
         spawnDays();
     }
    
+}
+
+function getCurrentMonthAndYear() {
+    var date = new Date();
+
+    currentMonthDisplaying = date.getMonth();
+    currentYearDisplaying = date.getFullYear();
 }
 getServerData();
