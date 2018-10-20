@@ -54,6 +54,7 @@ h4 {
     position: relative;
 
     background-color: #ff9f43;
+    transition: background-color 100ms ease-out;
 }
 
 .page-content {

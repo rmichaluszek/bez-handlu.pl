@@ -32,8 +32,12 @@ function slideToTheRight() {
         if(leftArrowDeactivated) { //enable the left arrow
             var leftArrow = document.getElementById("arrowLeft");
             leftArrow.className = "arrow";
-            leftArrow.style.pointerEvents = 'auto'; 
+            leftArrow.style.pointerEvents = 'auto';
+            leftArrowDeactivated = false;
         }
+
+        var pageContainer = document.getElementById("page-container");
+        pageContainer.style.backgroundColor = colors[currentMonthDisplaying];
     }
 }
 
@@ -64,7 +68,11 @@ function slideToTheLeft() {
             var rightArrow = document.getElementById("arrowRight");
             rightArrow.className = "arrow";
             rightArrow.style.pointerEvents = 'auto'; 
+            rightArrowDeactivated = false;
         }
+
+        var pageContainer = document.getElementById("page-container");
+        pageContainer.style.backgroundColor = colors[currentMonthDisplaying];
     }
     
 }
