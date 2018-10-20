@@ -2,26 +2,26 @@ const express = require('express')
 const app = express()
 const port = 8080
 
-app.use(express.static('public'))
-
-app.get('/get-data', (req, res) => function(){
+app.get('/api/get-data', (req, res) => {
     var testData = {
         '2018' : [
-            [1,8,15,22,29],
-            [1,8,15,22],
-            [1,8,15,22],
-            [1,8,15,22,29],
-            [1,8,15,22,29],
-            [1,8,15,22],
-            [1,8,15,22,29],
-            [1,8,15,22,29],
-            [1,8,15,22],
-            [1,8,15,22],
-            [1,8,15,22,29],
-            [1,8,15,22]
+            [[1,true],[8,false],[15,false],[22,true],[29,true]],
+            [[1,true],[8,false],[15,false],[22,true]],
+            [[1,true],[8,false],[15,false],[22,true]],
+            [[1,true],[8,false],[15,false],[22,true],[29,true]],
+            [[1,true],[8,false],[15,false],[22,true],[29,true]],
+            [[1,true],[8,false],[15,false],[22,true]],
+            [[1,true],[8,false],[15,false],[22,true],[29,true]],
+            [[1,true],[8,false],[15,false],[22,true],[29,true]],
+            [[1,true],[8,false],[15,false],[22,true]],
+            [[1,true],[8,false],[15,false],[22,true]],
+            [[1,true],[8,false],[15,false],[22,true],[29,true]],
+            [[1,true],[8,false],[15,false],[22,true]]
         ]
     }
-    res.send(testYearInfo);
+    res.send(testData);
 });
+
+app.use(express.static('public'))
 
 app.listen(port, () => console.log('Niedziele-bez-handlu server is running on port 8080...'));
