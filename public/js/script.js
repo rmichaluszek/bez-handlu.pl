@@ -54,7 +54,7 @@ function spawnDays() {
     var currentPageContentContainer = document.getElementsByClassName("current")[0];
     var daysContainer = currentPageContentContainer.getElementsByClassName("square-container")[0];
 
-    currentPageContentContainer.getElementsByClassName("page-content-month-name")[0].innerHTML = currentMonthDisplaying;
+    currentPageContentContainer.getElementsByClassName("page-content-month-name")[0].innerHTML = monthsNames[currentMonthDisplaying];
     daysContainer.innerHTML = "";
 
     for( var day = 0 ; day < daysData[currentYearDisplaying][currentMonthDisplaying].length; day++ ) {
