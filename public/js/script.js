@@ -81,7 +81,6 @@ function spawnDays() {
     var currentPageContentContainer = document.getElementsByClassName("current")[0];
     var daysContainer = currentPageContentContainer.getElementsByClassName("square-container")[0];
  
-    //currentPageContentContainer.getElementsByClassName("page-content-month-name")[0].innerHTML = monthsNames[currentMonthDisplaying] +" "+ currentYearDisplaying;
     daysContainer.innerHTML = '<div class="page-content-month-name">'+monthsNames[currentMonthDisplaying] +" "+ currentYearDisplaying+'</div>';
 
     for( var day = 0 ; day < daysData[currentYearDisplaying][currentMonthDisplaying].length; day++ ) {
@@ -95,8 +94,7 @@ function spawnNoDaysAvaibleInfo() {
     var currentPageContentContainer = document.getElementsByClassName("current")[0];
     var daysContainer = currentPageContentContainer.getElementsByClassName("square-container")[0];
  
-    currentPageContentContainer.getElementsByClassName("page-content-month-name")[0].innerHTML = monthsNames[currentMonthDisplaying] +" "+ currentYearDisplaying;
-    daysContainer.innerHTML = "";
+    daysContainer.innerHTML = '<div class="page-content-month-name">'+monthsNames[currentMonthDisplaying] +" "+ currentYearDisplaying+'</div>';
     daysContainer.innerHTML += "<h3>Jeszcze nie ma informacji o niedzielach bez handlu na ten miesiąc.</br></h3>"
     daysContainer.innerHTML += "<h4>Zostaną one dodane wraz z pojawieniem się dat.</br></h4>"
 
@@ -111,8 +109,7 @@ function spawnTheLawStartInfo() {
     var currentPageContentContainer = document.getElementsByClassName("current")[0];
     var daysContainer = currentPageContentContainer.getElementsByClassName("square-container")[0];
  
-    currentPageContentContainer.getElementsByClassName("page-content-month-name")[0].innerHTML = monthsNames[currentMonthDisplaying] +" "+ currentYearDisplaying;
-    daysContainer.innerHTML = "";
+    daysContainer.innerHTML = '<div class="page-content-month-name">'+monthsNames[currentMonthDisplaying] +" "+ currentYearDisplaying+'</div>';
     daysContainer.innerHTML += "<h3>W tym czasie ustawa <a href='https://orka.sejm.gov.pl/proc8.nsf/ustawy/870_u.htm'>o ograniczeniu handlu w niedziele i święta oraz w niektóre inne dni</a> nie była jeszcze wdrożona.</br></h3>"
     daysContainer.innerHTML += "<h4>Zaczęła ona działać z dniem <b>10 Stycznia 2018 r.</b> i obowiązuje aż do teraz.</br></h4>"
 

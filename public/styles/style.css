@@ -58,7 +58,7 @@ h4 {
     position: relative;
 
     background-color: #ff9f43;
-    transition: background-color 100ms ease-out;
+    transition: background-color 300ms ease-out;
 }
 
 .page-content {
@@ -160,6 +160,10 @@ h4 {
     background-color: #ff6348;
 }
 
+.day-square:hover {
+    cursor: pointer;
+}
+
 
 /* Arrows */
 
@@ -177,7 +181,11 @@ h4 {
 
     transition: all 0.1s ease-out;
     filter: brightness(100%);
+
+   outline: none;
+    -webkit-tap-highlight-color: transparent;
 }
+
 .arrow:hover {
     transition: 0.1s ease-out;
     margin-top: 2px;
@@ -204,7 +212,7 @@ h4 {
 #arrowLeftShadow {
     left: 20px;
     padding-top: 4px;
-    opacity: 0.3;
+    opacity: 0.2;
     z-index: 9;
     filter: brightness(10%);
 }
@@ -217,7 +225,7 @@ h4 {
 #arrowRightShadow {
     right: 20px;
     padding-top: 4px;   
-    opacity: 0.3;
+    opacity: 0.2;
     z-index: 9;
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
@@ -235,10 +243,14 @@ h4 {
 }
 
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 600px) , only screen and (max-height: 400px) {
     .day-square {
         width: 80px;
         height: 80px;
+
+        margin-bottom: 14px;
+        margin-left: 7px;
+        margin-right: 7px;
 
         border-radius: 5px 20px;
 
@@ -262,5 +274,11 @@ h4 {
     .arrow:active {
         transition: 0.1s ease-out;
         bottom: 16px;
+    }
+
+    .page-content-month-name {
+        font-size: 1.5em;
+        font-weight: bold;
+        padding-bottom: 10px;
     }
 }
