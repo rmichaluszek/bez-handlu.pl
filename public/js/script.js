@@ -81,8 +81,8 @@ function spawnDays() {
     var currentPageContentContainer = document.getElementsByClassName("current")[0];
     var daysContainer = currentPageContentContainer.getElementsByClassName("square-container")[0];
  
-    currentPageContentContainer.getElementsByClassName("page-content-month-name")[0].innerHTML = monthsNames[currentMonthDisplaying] +" "+ currentYearDisplaying;
-    daysContainer.innerHTML = "";
+    //currentPageContentContainer.getElementsByClassName("page-content-month-name")[0].innerHTML = monthsNames[currentMonthDisplaying] +" "+ currentYearDisplaying;
+    daysContainer.innerHTML = '<div class="page-content-month-name">'+monthsNames[currentMonthDisplaying] +" "+ currentYearDisplaying+'</div>';
 
     for( var day = 0 ; day < daysData[currentYearDisplaying][currentMonthDisplaying].length; day++ ) {
         var isSundayTradeOff = "day-square-closed";
@@ -127,7 +127,7 @@ function getServerData() {
 
     const http = new XMLHttpRequest()
 
-    http.open("GET", "http://localhost:8080/api/get-data")
+    http.open("GET", "/api/get-data")
     http.send()
     
     http.onload = () => {
