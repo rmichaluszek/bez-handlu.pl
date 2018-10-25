@@ -4,7 +4,8 @@
   "description": "Simple page that shows which sundays are trade-free",
   "main": "index.js",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "mongoose": "^5.3.5"
   },
   "devDependencies": {},
   "scripts": {
