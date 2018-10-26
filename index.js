@@ -5,7 +5,7 @@ const port = 8080
 
 
 app.get('/api/get-data', (req, res) => {
-   /* var testData = {
+   var testData = {
         '2018' : [
             [[1,true],[8,false],[15,false],[22,true],[29,true]],
             [[1,true],[8,false],[15,false],[22,true]],
@@ -20,7 +20,7 @@ app.get('/api/get-data', (req, res) => {
             [[1,true],[8,false],[15,false],[22,true],[29,true]],
             [[1,true],[8,false],[15,false],[22,true]]
         ]
-    }*/
+    }
 
     
 
