@@ -7,18 +7,18 @@ const port = 8080
 app.get('/api/get-data', (req, res) => {
    var testData = {
         '2018' : [
-            [[1,true],[8,false],[15,false],[22,true],[29,true]],
-            [[1,true],[8,false],[15,false],[22,true]],
-            [[1,true],[8,false],[15,false],[22,true]],
-            [[1,true],[8,false],[15,false],[22,true],[29,true]],
-            [[1,true],[8,false],[15,false],[22,true],[29,true]],
-            [[1,true],[8,false],[15,false],[22,true]],
-            [[1,true],[8,false],[15,false],[22,true],[29,true]],
-            [[1,true],[8,false],[15,false],[22,true],[29,true]],
-            [[1,true],[8,false],[15,false],[22,true]],
-            [[1,true],[8,false],[15,false],[22,true]],
-            [[1,true],[8,false],[15,false],[22,true],[29,true]],
-            [[1,true],[8,false],[15,false],[22,true]]
+            [[1,"sunday"],[8,"holiday"],[15,"holiday"],[22,"holiday"],[29,"sunday"]],
+            [[1,"sunday"],[8,"holiday"],[15,"holiday"],[22,"sunday"]],
+            [[1,"sunday"],[8,"holiday"],[15,"holiday"],[22,"sunday"]],
+            [[1,"sunday"],[8,"holiday"],[15,"holiday"],[22,"sunday"],[29,"sunday"]],
+            [[1,"sunday"],[8,"holiday"],[15,"holiday"],[22,"sunday"],[29,"sunday"]],
+            [[1,"sunday"],[8,"holiday"],[15,"holiday"],[22,"sunday"]],
+            [[1,"sunday"],[8,"holiday"],[15,"holiday"],[22,"sunday"],[29,"sunday"]],
+            [[1,"sunday"],[8,"holiday"],[15,"holiday"],[22,"holiday"],[29,"sunday"]],
+            [[1,"sunday"],[8,"holiday"],[15,"holiday"],[22,"holiday"]],
+            [[1,"sunday"],[8,"holiday"],[15,"holiday"],[22,"sunday"]],
+            [[1,"sunday"],[8,"holiday"],[15,"holiday"],[22,"sunday"],[29,"sunday"]],
+            [[1,"sunday"],[8,"holiday"],[15,"holiday"],[22,"sunday"]]
         ]
     }
 

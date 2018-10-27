@@ -153,13 +153,22 @@ h4 {
     box-shadow: 0px 4px 0px rgba(0,0,0,0.2);
 }
 
-.cell-tradeoff {
-    background-color: #ff6348;
-
-}
-.cell-tradeoff:hover {
+.cell-tradeoff-sunday {
+    background-color: #ff6348 !important;
     cursor: pointer;
 }
+.cell-tradeoff-holiday {
+    border: 5px white solid;
+    background-color: #ff6348 !important;
+    color: white !important;
+    cursor: pointer;
+
+    width: 50px !important;
+    height: 50px !important;
+
+    line-height: 50px !important;
+}
+
 
 .cell-disabled {
     background-color: rgba(255,255,255,0.3) !important;

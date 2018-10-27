@@ -91,7 +91,7 @@ function updateDays() {
  
     for ( var y = 0; y < 6; y++ ) {
         for ( var x = 0; x < 7; x++ ) {
-            if(y*7+x+1-firstDay <= 0 ) {
+            if (y*7+x+1-firstDay <= 0 ) {
                 table.getElementsByClassName("cell"+String(y*7+x))[0].className = "cell"+String(y*7+x)+ " cell-disabled";
                 table.getElementsByClassName("cell"+String(y*7+x))[0].innerHTML = y*7+x+1-firstDay+previousMonthDaysInMonth;
             } else if (y*7+x-firstDay > daysInMonth) {
@@ -109,6 +109,13 @@ function updateDays() {
     } else {
         //show it otherwise
         table.getElementsByClassName("cell35")[0].parentNode.className = "";
+    }
+
+    //apply the tradeoff days from server data
+    for ( var i = 0; i < daysData[currentYearDisplaying][currentMonthDisplaying].length; i++ ) {
+        var tradeoffType = daysData[currentYearDisplaying][currentMonthDisplaying][i][1];
+        var className = String(daysData[currentYearDisplaying][currentMonthDisplaying][i][0]-1+firstDay);
+        table.getElementsByClassName("cell"+className)[0].className = "cell"+className+" cell-tradeoff-"+tradeoffType;
     }
 }
 
