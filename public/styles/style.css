@@ -116,7 +116,7 @@ h4 {
 }
 
 .page-content-month-name {
-    color: #222233;
+    color: #111122;
     text-align: center;
     
     font-size: 2em;
@@ -129,64 +129,45 @@ h4 {
     width: 100%;
     text-align: center;
 
-    font-size: 2em;
     font-weight: bold;
 }
 .page-content-days-table td {
     background-color: #fff;
+    color: #111122;
 
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
 
-    line-height: 70px;
+    font-size: 1.8em;
+
+    line-height: 60px;
 
     margin-left: 4px;
     margin-right: 4px;
     margin-top: 4px;
     margin-bottom: 4px;
 
-    border-radius: 5px 15px;
+    border-radius: 4px 12px;
 
     display: inline-block;
     box-shadow: 0px 4px 0px rgba(0,0,0,0.2);
 }
 
-.day-square {
-    width: 120px;
-    height: 120px;
-
-    line-height: 120px;
-    text-align: center;
-
-    border-radius: 10px 40px;
-
-    background-color: white;
-    color: white;
-
-    box-shadow: 0px 4px 0px rgba(0,0,0,0.2);
-
-    overflow: hidden;
-
-    font-weight: 900;
-    font-size: 3em;
-
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 20px;
-
-    display:inline-block; 
-}
-
-.day-square-avaible {
-    background-color: #2ed573;
-
-}
-.day-square-closed {
+.cell-tradeoff {
     background-color: #ff6348;
+
+}
+.cell-tradeoff:hover {
+    cursor: pointer;
 }
 
-.day-square:hover {
-    cursor: pointer;
+.cell-disabled {
+    background-color: rgba(255,255,255,0.3) !important;
+    color: rgba(4,4,8,0.3) !important;
+}
+.hidden-tr {
+    display: none;
+    height: 0;
 }
 
 

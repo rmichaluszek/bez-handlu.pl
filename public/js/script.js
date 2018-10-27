@@ -21,7 +21,7 @@ function slideToTheRight() {
     
         //update the squares and current month info
         currentMonthDisplaying++;
-        if(currentMonthDisplaying >= 12) { bb
+        if(currentMonthDisplaying >= 12) { 
             currentMonthDisplaying = 0;
             currentYearDisplaying++;
         }
@@ -83,12 +83,32 @@ function updateDays() {
 
     var table = contentContainer.getElementsByClassName("page-content-days-table")[0];
 
+    var firstDay = getMonthFirstDay(currentYearDisplaying,currentMonthDisplaying).getDay()-1;
+    var previousMonthDaysInMonth = getDaysCountOfMonth(currentYearDisplaying,currentMonthDisplaying-1);
+    var daysInMonth = getDaysCountOfMonth(currentYearDisplaying,currentMonthDisplaying)-1;
+    
     contentContainer.getElementsByClassName("page-content-month-name")[0].innerHTML = monthsNames[currentMonthDisplaying] +" "+ currentYearDisplaying;
  
-    for ( var y = 0; y < 5; y++ ) {
+    for ( var y = 0; y < 6; y++ ) {
         for ( var x = 0; x < 7; x++ ) {
-            table.getElementsByClassName("cell"+String(y*7+x))[0].innerHTML = y*7+x+1;
+            if(y*7+x+1-firstDay <= 0 ) {
+                table.getElementsByClassName("cell"+String(y*7+x))[0].className = "cell"+String(y*7+x)+ " cell-disabled";
+                table.getElementsByClassName("cell"+String(y*7+x))[0].innerHTML = y*7+x+1-firstDay+previousMonthDaysInMonth;
+            } else if (y*7+x-firstDay > daysInMonth) {
+                table.getElementsByClassName("cell"+String(y*7+x))[0].className = "cell"+String(y*7+x)+ " cell-disabled";
+                table.getElementsByClassName("cell"+String(y*7+x))[0].innerHTML = y*7+x+1-firstDay-daysInMonth-1;
+            } 
+            else {
+                table.getElementsByClassName("cell"+String(y*7+x))[0].innerHTML = y*7+x+1-firstDay;
+            }
         }
+    }
+    if (table.getElementsByClassName("cell35")[0].className == "cell35 cell-disabled") {
+        //hide last row because its not used by current month {}
+        table.getElementsByClassName("cell35")[0].parentNode.className = "hidden-tr";
+    } else {
+        //show it otherwise
+        table.getElementsByClassName("cell35")[0].parentNode.className = "";
     }
 }
 
@@ -122,6 +142,21 @@ function spawnTheLawStartInfo() {
     leftArrowDeactivated = true;
 }
 
+function getMonthFirstDay(year,month) {
+    return new Date(year,month,1);
+}
+function getMonthLastDay(year,month) {
+    return new Date(year,month + 1, 0);
+}
+function getDaysCountOfMonth(year,month) {
+    var thisYear = year;
+    var thisMonth = month;
+    if(thisMonth <= -1) { bb
+        thisMonth = 11;
+        thisYear -= 1;
+    }
+    return new Date(thisYear,thisMonth+ 1, 0).getDate();
+}
 function getServerData() {
 
     const http = new XMLHttpRequest()
@@ -142,7 +177,7 @@ function getServerData() {
 
 function createDaysTable(div) {
     var table = div.getElementsByClassName("page-content-days-table")[0];
-    for ( var y = 0; y < 5; y++ ) {
+    for ( var y = 0; y < 6; y++ ) {
         var tr = document.createElement("tr");
         for ( var x = 0; x < 7; x++ ) {
             var td = document.createElement("td");
