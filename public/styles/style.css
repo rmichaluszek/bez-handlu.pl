@@ -152,6 +152,9 @@ h4 {
     display: inline-block;
     box-shadow: 0px 4px 0px rgba(0,0,0,0.2);
 }
+.hidden-table {
+    display: none;
+}
 
 .cell-tradeoff-sunday {
     background-color: #ff6348 !important;
