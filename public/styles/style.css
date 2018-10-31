@@ -156,13 +156,25 @@ h4 {
     display: none;
 }
 
+.cell-tradeable-sunday {
+    border: 5px white solid;
+    background-color: #ff6348 !important;
+    color: white !important;
+    cursor: pointer;
+
+    width: 50px !important;
+    height: 50px !important;
+
+    line-height: 50px !important;
+}
+
 .cell-tradeoff-sunday {
     background-color: #ff6348 !important;
     cursor: pointer;
 }
 .cell-tradeoff-holiday {
     border: 5px white solid;
-    background-color: #ff6348 !important;
+    background-color: #2ecc71 !important;
     color: white !important;
     cursor: pointer;
 
