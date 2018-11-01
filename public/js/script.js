@@ -94,13 +94,13 @@ function updateDays() {
     
     contentContainer.getElementsByClassName("page-content-month-name")[0].innerHTML = monthsNames[currentMonthDisplaying] +" "+ currentYearDisplaying;
  
-    console.log(firstDay)
-
     for ( var y = 0; y < 6; y++ ) {
         for ( var x = 0; x < 7; x++ ) {
+
             if (y*7+x+1-firstDay <= 0 ) {
                 table.getElementsByClassName("cell"+String(y*7+x))[0].className = "cell"+String(y*7+x)+ " cell-disabled";
                 table.getElementsByClassName("cell"+String(y*7+x))[0].innerHTML = y*7+x+1-firstDay+previousMonthDaysInMonth;
+                
             } else if (y*7+x-firstDay > daysInMonth) {
                 table.getElementsByClassName("cell"+String(y*7+x))[0].className = "cell"+String(y*7+x)+ " cell-disabled";
                 table.getElementsByClassName("cell"+String(y*7+x))[0].innerHTML = y*7+x+1-firstDay-daysInMonth-1;
@@ -108,8 +108,16 @@ function updateDays() {
             else {
                 table.getElementsByClassName("cell"+String(y*7+x))[0].innerHTML = y*7+x+1-firstDay;
                 table.getElementsByClassName("cell"+String(y*7+x))[0].className = "cell"+String(y*7+x);
+
+                if(x==6) {
+                    table.getElementsByClassName("cell"+String(y*7+x))[0].className = "cell"+String(y*7+x) +" cell-tradeable-sunday";
+                }
             }
+
+     
         }
+
+    
     }
     if (table.getElementsByClassName("cell35")[0].className == "cell35 cell-disabled") {
         //hide last row because its not used by current month {}
