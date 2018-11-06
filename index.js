@@ -4,26 +4,6 @@ const app = express()
 const port = 8080
 
 
-app.get('/api/get-data', (req, res) => {
-   var testData = {
-        '2018' : [
-            [[1,"sunday"],[8,"holiday"],[15,"holiday"],[22,"holiday"],[29,"sunday"]],
-            [[1,"sunday"],[8,"holiday"],[15,"holiday"],[22,"sunday"]],
-            [[1,"sunday"],[8,"holiday"],[15,"holiday"],[22,"sunday"]],
-            [[1,"sunday"],[8,"holiday"],[15,"holiday"],[22,"sunday"],[29,"sunday"]],
-            [[1,"sunday"],[8,"holiday"],[15,"holiday"],[22,"sunday"],[29,"sunday"]],
-            [[1,"sunday"],[8,"holiday"],[15,"holiday"],[22,"sunday"]],
-            [[1,"sunday"],[8,"holiday"],[15,"holiday"],[22,"sunday"],[29,"sunday"]],
-            [[1,"sunday"],[8,"holiday"],[15,"holiday"],[22,"holiday"],[29,"sunday"]],
-            [[1,"sunday"],[8,"holiday"],[15,"holiday"],[22,"holiday"]],
-            [[1,"sunday"],[8,"holiday"],[15,"holiday"],[22,"sunday"]],
-            [[1,"sunday"],[8,"holiday"],[15,"holiday"],[22,"sunday"],[29,"sunday"]],
-            [[1,"sunday"],[8,"holiday"],[15,"holiday"],[22,"sunday"]]
-        ]
-    }  
-    res.send(testData);
-});
-
 var getDataSchema = mongoose.Schema({
     year: Number,
     months: Array,
@@ -33,19 +13,25 @@ var getDataSchema = mongoose.Schema({
       required: true,
     }
 });
+
 var Data = mongoose.model('data', getDataSchema,'days');
+
+app.get('/api/get-data', (req, res) => {
+   Data.find(function(err, result){
+      if (err === true) {
+          res.send({'status':'error','message':'Nie udało się połączyć z bazą danych. </br>Skontaktuj się z twórcą aplikacji.'})
+      } else {
+          res.send({'status':'success','data':result});
+      }
+   });
+    
+});
 
 app.use(express.static('public'))
 
 mongoose.connect("mongodb://localhost:27017/bez-handlu",{ useNewUrlParser: true }).then(
     () => {console.log('Connected to the database') },
     err => { console.log('Error connecting to the database: ' +err)});
-
-    console.log("super");  
-            
-    Data.find(function(err, res){
-        console.log(res);
-    });
 
 app.listen(port, () => console.log('Bez-handlu.pl server is running on port 8080...'));
 

@@ -25,15 +25,22 @@ function slideToTheRight() {
             currentMonthDisplaying = 0;
             currentYearDisplaying++;
         }
-        if(daysData[currentYearDisplaying]==null || daysData[currentYearDisplaying][currentMonthDisplaying].length == 1) // that means there is no info about trade-off days yet
+      
+        var currentYearDisplayingArray = daysData.filter(obj => {
+           return obj.year === currentYearDisplaying;
+        });
+        if (currentYearDisplayingArray[0]!=null) {
+            currentYearDisplayingArray = currentYearDisplayingArray[0].months;
+        } else {
+            currentYearDisplayingArray = false;
+        }
+    
+        if(!currentYearDisplayingArray || currentYearDisplayingArray[currentMonthDisplaying].length == 1) // that means there is no info about trade-off days yet
             spawnNoDaysAvaibleInfo();
         else updateDays();
 
         if(leftArrowDeactivated) { //enable the left arrow
-            var leftArrow = document.getElementById("arrowLeft");
-            leftArrow.className = "arrow";
-            leftArrow.style.pointerEvents = 'auto';
-            leftArrowDeactivated = false;
+            enableLeftArrow();
         }
 
         var pageContainer = document.getElementById("page-container");
@@ -53,22 +60,29 @@ function slideToTheLeft() {
 
         shouldIWait = true;
         window.setTimeout(function(){shouldIWait = false}, 350); // wait for the animations to end
-    
+     
         //update the squares and current month info
         currentMonthDisplaying--;
         if(currentMonthDisplaying < 0) {
             currentMonthDisplaying = 11;
             currentYearDisplaying--;
         }
-        if(daysData[currentYearDisplaying]==null || daysData[currentYearDisplaying][currentMonthDisplaying].length == 1) // that means there is no info about trade-off days yet
+        
+        var currentYearDisplayingArray = daysData.filter(obj => {
+           return obj.year === currentYearDisplaying;
+        });
+        if (currentYearDisplayingArray[0]!=null) {
+            currentYearDisplayingArray = currentYearDisplayingArray[0].months;
+        } else {
+            currentYearDisplayingArray = false;
+        }
+    
+        if(!currentYearDisplayingArray || currentYearDisplayingArray[currentMonthDisplaying].length == 1) // that means there is no info about trade-off days yet
             spawnTheLawStartInfo();
         else updateDays();
 
         if(rightArrowDeactivated) { //enable the left arrow
-            var rightArrow = document.getElementById("arrowRight");
-            rightArrow.className = "arrow";
-            rightArrow.style.pointerEvents = 'auto'; 
-            rightArrowDeactivated = false;
+            enableRightArrow();
         }
 
         var pageContainer = document.getElementById("page-container");
@@ -127,12 +141,20 @@ function updateDays() {
         table.getElementsByClassName("cell35")[0].parentNode.className = "";
     }
 
-    //apply the tradeoff days from server data
-    for ( var i = 0; i < daysData[currentYearDisplaying][currentMonthDisplaying].length; i++ ) {
-        var tradeoffType = daysData[currentYearDisplaying][currentMonthDisplaying][i][1];
-        var className = String(daysData[currentYearDisplaying][currentMonthDisplaying][i][0]-1+firstDay);
-        table.getElementsByClassName("cell"+className)[0].className = "cell"+className+" cell-tradeoff-"+tradeoffType;
-    }
+    var currentYearDisplayingArray = daysData.filter(obj => {
+        return obj.year === currentYearDisplaying;
+    });
+    if (currentYearDisplayingArray[0]!=null) {
+        currentYearDisplayingArray = currentYearDisplayingArray[0].months;
+      
+        //apply the tradeoff days from server data
+        for ( var i = 0; i < currentYearDisplayingArray[currentMonthDisplaying].length; i++ ) {
+            var tradeoffType = currentYearDisplayingArray[currentMonthDisplaying][i][1];
+            var className = String(currentYearDisplayingArray[currentMonthDisplaying][i][0]-1+firstDay);
+            table.getElementsByClassName("cell"+className)[0].className = "cell"+className+" cell-tradeoff-"+tradeoffType;
+        }
+    } 
+    
 }
 
 function spawnNoDaysAvaibleInfo() {
@@ -152,11 +174,7 @@ function spawnNoDaysAvaibleInfo() {
     //hide table
     table.className = "page-content-days-table hidden-table";
 
-    //disable the right arrow
-    var rightArrow = document.getElementById("arrowRight");
-    rightArrow.className = "arrow arrowDeactivated";
-    rightArrow.style.pointerEvents = 'none'; 
-    rightArrowDeactivated = true;
+    disableRightArrow();
 }
 
 function spawnTheLawStartInfo() {
@@ -176,17 +194,40 @@ function spawnTheLawStartInfo() {
     //hide table
     table.className = "page-content-days-table hidden-table";
 
-    //disable the left arrow
+    disableLeftArrow();
+}
+
+//Arrow deactivations and activations
+
+function disableLeftArrow() {
     var leftArrow = document.getElementById("arrowLeft");
     leftArrow.className = "arrow arrowDeactivated";
     leftArrow.style.pointerEvents = 'none'; 
     leftArrowDeactivated = true;
 }
+function disableRightArrow() {
+    var rightArrow = document.getElementById("arrowRight");
+    rightArrow.className = "arrow arrowDeactivated";
+    rightArrow.style.pointerEvents = 'none'; 
+    rightArrowDeactivated = true;
+}
+function enableRightArrow() {
+    var rightArrow = document.getElementById("arrowRight");
+    rightArrow.className = "arrow";
+    rightArrow.style.pointerEvents = 'auto'; 
+    rightArrowDeactivated = false;
+}
+function enableLeftArrow() {
+    var leftArrow = document.getElementById("arrowLeft");
+    leftArrow.className = "arrow";
+    leftArrow.style.pointerEvents = 'auto';
+    leftArrowDeactivated = false;
+}
 
 function getMonthFirstDay(year,month) {
     var result = new Date(year,month,1).getDay();
 
-    if ( result == 0 ) {
+    if ( result === 0 ) {
         result = 7;
     }
     return result;
@@ -211,14 +252,34 @@ function getServerData() {
     http.send()
     
     http.onload = () => {
-        daysData = JSON.parse(http.responseText);
-        getData();
-        createDaysTable(document.getElementsByClassName("current")[0]);
-        createDaysTable(document.getElementsByClassName("left")[0]);
-        createDaysTable(document.getElementsByClassName("right")[0]);
-        updateDays();
+        var result = JSON.parse(http.responseText);
+      console.log(result);
+        if (result.status == 'success') {
+            daysData = result.data;
+            getData();
+            createDaysTable(document.getElementsByClassName("current")[0]);
+            createDaysTable(document.getElementsByClassName("left")[0]);
+            createDaysTable(document.getElementsByClassName("right")[0]);
+            updateDays();
+        } else {
+            disableLeftArrow();
+            disableRightArrow();
+          
+            //Show message and hide the table
+            var currentPageContentContainer = document.getElementsByClassName("current")[0];
+            var contentContainer = currentPageContentContainer.getElementsByClassName("content-container")[0];
+
+            var otherInfo = contentContainer.getElementsByClassName("page-content-other-info")[0];
+            var monthName = contentContainer.getElementsByClassName("page-content-month-name")[0];
+            var table = contentContainer.getElementsByClassName("page-content-days-table")[0];
+
+            otherInfo.innerHTML = "";
+
+            monthName.innerHTML = "Wystąpił błąd";
+            otherInfo.innerHTML += "<h3>"+result.message+"</h3>";
+            table.className = "page-content-days-table hidden-table";
+        }        
     }
-   
 }
 
 function createDaysTable(div) {
@@ -233,7 +294,7 @@ function createDaysTable(div) {
         }
         table.appendChild(tr)
     }
-;}
+}
 
 function getData() {
     var date = new Date();
