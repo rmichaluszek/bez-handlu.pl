@@ -188,7 +188,7 @@ function spawnTheLawStartInfo() {
     otherInfo.innerHtml = "";
 
     monthName.innerHTML = monthsNames[currentMonthDisplaying] +" "+ currentYearDisplaying;
-    otherInfo.innerHTML += "<h3>W tym czasie ustawa <a href='https://orka.sejm.gov.pl/proc8.nsf/ustawy/870_u.htm'>o ograniczeniu handlu w niedziele i święta oraz w niektóre inne dni</a> nie była jeszcze wdrożona.</br></h3>"
+    otherInfo.innerHTML = "<h3>W tym czasie ustawa <a href='https://orka.sejm.gov.pl/proc8.nsf/ustawy/870_u.htm'>o ograniczeniu handlu w niedziele i święta oraz w niektóre inne dni</a> nie była jeszcze wdrożona.</br></h3>"
     otherInfo.innerHTML += "<h4>Zaczęła ona działać z dniem <b>10 Stycznia 2018 r.</b> i obowiązuje aż do teraz.</br></h4>"
 
     //hide table
