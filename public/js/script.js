@@ -284,12 +284,20 @@ function getServerData() {
 
 function createDaysTable(div) {
     var table = div.getElementsByClassName("page-content-days-table")[0];
-    for ( var y = 0; y < 6; y++ ) {
+    for ( var y = 0; y < 7; y++ ) {
         var tr = document.createElement("tr");
         for ( var x = 0; x < 7; x++ ) {
             var td = document.createElement("td");
-            td.innerHTML += '...';
-            td.className = "cell"+String(y*7+x);
+            if(y > 0) {
+              td.innerHTML += '...';
+              td.className = "cell"+String((y-1)*7+x);
+            } else {
+              td.innerHTML += daysNames[x];
+              td.className = "header";
+              if (x == 6) {
+                  td.className = "header sunday";
+              }
+            }
             tr.appendChild(td);
         }
         table.appendChild(tr)

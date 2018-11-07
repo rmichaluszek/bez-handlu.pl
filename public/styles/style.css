@@ -185,6 +185,18 @@ h4 {
     display: none;
     height: 0;
 }
+.header {
+    background: none !important;
+    line-height: 20px !important;
+    height: 20px !important;
+  
+    box-shadow: none !important;
+    
+    font-size: 1em !important;
+}
+.sunday {
+    color: #e93e2d !important;
+}
 
 /* Arrows */
 
@@ -309,6 +321,9 @@ h4 {
         line-height: 32px !important;
 
     }
+    .header {
+       font-size: 0.7em !important;
+    }
 }
 
 @media only screen and (max-width: 520px) , only screen and (max-height: 440px) {
@@ -343,6 +358,10 @@ h4 {
         height: 24px !important;
 
         line-height: 24px !important;
+    }
+  
+    .header {
+       font-size: 0.5em !important;
     }
 
 }

@@ -13,6 +13,16 @@ var monthsNames = [
     "Grudzień"
 ]
 
+var daysNames = [
+    "Pon",
+    "Wt",
+    "Śr",
+    "Czw",
+    "Ptk",
+    "Sob",
+    "Ndz"
+]
+
 var colors = [
     "#74b9ff",
     "#81ecec",
