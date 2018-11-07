@@ -23,17 +23,17 @@ h4 {
     min-width: 320px;
     line-height: 50px;
 
-    background-color: white;
+    background-color: rgba(0,0,0,0.1);
 
     padding-left: 20px;
     padding-right: 20px;
 
-    box-shadow: 0px 3px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 3px 1px rgba(0,0,0,0.2);
 
     font-size: 1.2em;
     font-weight: 900;
 
-    color: #111122;
+    color: white;
 
     position: fixed;
 
@@ -48,8 +48,7 @@ h4 {
 
     min-width:320px;
 
-    padding-top: 50px;
-    padding-bottom: 130px;
+    padding-top: 0px;
 
     box-sizing: border-box;
 
@@ -106,6 +105,7 @@ h4 {
     z-index: -1;
 }
 
+/* Content and containers */
 .content-container {
     margin: auto;
     width:80%;
@@ -156,11 +156,12 @@ h4 {
     display: none;
 }
 
+/* Cell types */
+
 .cell-tradeable-sunday {
     background-color: #0be881 !important;
     cursor: pointer;
 }
-
 .cell-tradeoff-sunday {
     background-color: #ff6348 !important;
     cursor: pointer;
@@ -176,8 +177,6 @@ h4 {
 
     line-height: 50px !important;
 }
-
-
 .cell-disabled {
     background-color: rgba(255,255,255,0.3) !important;
     color: rgba(4,4,8,0.3) !important;
@@ -186,7 +185,6 @@ h4 {
     display: none;
     height: 0;
 }
-
 
 /* Arrows */
 
@@ -208,7 +206,6 @@ h4 {
    outline: none;
     -webkit-tap-highlight-color: transparent;
 }
-
 .arrow:hover {
     transition: 0.1s ease-out;
     margin-top: 2px;
@@ -217,7 +214,6 @@ h4 {
     transition: 0.1s ease-out;
     margin-top: 4px;
 }
-
 .arrowShadow {
     position: absolute;
 
@@ -228,7 +224,6 @@ h4 {
     z-index: 10;
  
 }
-
 #arrowLeft {
     left: 20px;    
 }
@@ -239,7 +234,6 @@ h4 {
     z-index: 9;
     filter: brightness(10%);
 }
-
 #arrowRight {
     right: 20px;
     -webkit-transform: scaleX(-1);
@@ -254,33 +248,17 @@ h4 {
     transform: scaleX(-1);
     filter: brightness(10%);
 }
-
-
 .arrowDeactivated {
     filter: brightness(60%);
     transition: all 1s ease;
-}
-.arrowDeactivated {
     cursor: default !important;
     margin-top: 0px !important;
 }
 
+/* Multiple resolutons */
 
-@media only screen and (max-width: 600px) , only screen and (max-height: 400px) {
-    .day-square {
-        width: 80px;
-        height: 80px;
-
-        margin-bottom: 14px;
-        margin-left: 7px;
-        margin-right: 7px;
-
-        border-radius: 5px 20px;
-
-        font-size: 2em;
-        line-height: 80px;
-    }
-
+@media only screen and (max-width: 680px) , only screen and (max-height: 570px) {
+  
     .arrow {
         top: auto;
         bottom: 20px;
@@ -289,7 +267,6 @@ h4 {
         top: auto;
         bottom: 16px;
     }
-
     .arrow:hover {
         transition: 0.1s ease-out;
         bottom: 18px;
@@ -299,9 +276,73 @@ h4 {
         bottom: 16px;
     }
 
+  
     .page-content-month-name {
         font-size: 1.5em;
         font-weight: bold;
         padding-bottom: 10px;
     }
+    .page-content-days-table td {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2em;
+        line-height: 40px;
+      
+        margin-left: 3px;
+        margin-right: 3px;
+        margin-top: 3px;
+        margin-bottom: 3px;
+
+        border-radius: 4px 10px;
+            
+        box-shadow: 0px 3px 0px rgba(0,0,0,0.2);
+    }
+    .cell-tradeoff-holiday {
+        border: 4px white solid;
+        background-color: #ff6348 !important;
+        color: white !important;
+        cursor: pointer;
+
+        width: 32px !important;
+        height: 32px !important;
+
+        line-height: 32px !important;
+
+    }
+}
+
+@media only screen and (max-width: 520px) , only screen and (max-height: 440px) {
+  
+    .page-content-month-name {
+        font-size: 1.0em;
+        font-weight: bold;
+        padding-bottom: 5px;
+    }
+    .page-content-days-table td {
+        width: 30px;
+        height: 30px;
+        font-size: 1.0em;
+        line-height: 30px;
+      
+        margin-left: 2px;
+        margin-right: 2px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+
+        border-radius: 2px 8px;
+            
+        box-shadow: 0px 2px 0px rgba(0,0,0,0.2);
+    }
+    .cell-tradeoff-holiday {
+        border: 3px white solid;
+        background-color: #ff6348 !important;
+        color: white !important;
+        cursor: pointer;
+
+        width: 24px !important;
+        height: 24px !important;
+
+        line-height: 24px !important;
+    }
+
 }
