@@ -107,7 +107,8 @@ function updateDays() {
     var daysInMonth = getDaysCountOfMonth(currentYearDisplaying,currentMonthDisplaying)-1;
     
     contentContainer.getElementsByClassName("page-content-month-name")[0].innerHTML = monthsNames[currentMonthDisplaying] +" "+ currentYearDisplaying;
- 
+     contentContainer.getElementsByClassName("page-content-month-name")[0].innerHTML = monthsNames[currentMonthDisplaying] +" "+ currentYearDisplaying;
+
     for ( var y = 0; y < 6; y++ ) {
         for ( var x = 0; x < 7; x++ ) {
 
@@ -134,7 +135,7 @@ function updateDays() {
     
     }
     if (table.getElementsByClassName("cell35")[0].className == "cell35 cell-disabled") {
-        //hide last row because its not used by current month {}
+        //hide last row because its not used by current month
         table.getElementsByClassName("cell35")[0].parentNode.className = "hidden-tr";
     } else {
         //show it otherwise
@@ -292,7 +293,7 @@ function createDaysTable(div) {
               td.innerHTML += '...';
               td.className = "cell"+String((y-1)*7+x);
             } else {
-              td.innerHTML += daysNames[x];
+              td.innerHTML += daysShortNames[x]; // from additionalData.js file
               td.className = "header";
               if (x == 6) {
                   td.className = "header sunday";

@@ -13,7 +13,7 @@ var monthsNames = [
     "Grudzień"
 ]
 
-var daysNames = [
+var daysShortNames = [
     "Pon",
     "Wt",
     "Śr",

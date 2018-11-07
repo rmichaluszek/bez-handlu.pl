@@ -41,6 +41,22 @@ h4 {
 
     box-sizing: border-box;
 }
+#info-button {
+    height: 24px;
+    width: 24px;
+  
+    border: none;
+    outline: none;
+  
+    float: right;
+  
+    padding: 6px;
+    margin-top: 8px;
+    border-radius: 3px 3px;
+}
+#info-button:hover {
+    background-color: rgba(0,0,0,0.2);
+}
 
 #page-container {
     width: 100%;
