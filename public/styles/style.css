@@ -55,7 +55,7 @@ h4 {
     border-radius: 3px 3px;
 }
 #info-button:hover {
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgba(0,0,0,0.05);
 }
 
 #page-container {
