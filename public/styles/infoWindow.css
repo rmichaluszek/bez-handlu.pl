@@ -123,7 +123,6 @@
 #info-window-close-button:hover {
     background: #f3f3ff;
 }
-
 #otherInfo {
     margin-top: 20px;
 }
@@ -139,4 +138,70 @@
     margin-right: -20px;
   
     border-radius: 0px 0px 10px 10px;
+}
+@media only screen and (max-width: 420px) , only screen and (max-height: 580px) {
+    #info-window {
+        width: 300px;
+        height: 360px;
+
+        margin-top: -200px;
+        margin-left: -150px;
+
+        box-shadow: 2px 3px 2px rgba(0,0,0,0.2);
+
+        border-radius: 4px 16px;
+
+        padding: 15px;
+        box-sizing: border-box;
+    }
+    #info-window h2 {
+        font-size: 1.2em;
+    }
+    #hint-image-tradeable-sunday {
+        width: 50px;
+        height: 50px;
+        border-radius: 4px 14px;
+    }
+    #hint-image-tradeoff-sunday {
+        width: 50px;
+        height: 50px;
+        border-radius: 4px 14px;
+    }
+    #hint-image-tradeoff-holiday-border {
+        width: 46px;
+        height: 46px;
+        border-radius: 5px 15px;
+    }
+    #hint-image-tradeoff-holiday-center {
+        width: 40px;
+        height: 40px;
+        border-radius: 4px 12px;
+    }
+    .hint-section {
+        font-size: 0.7em;
+        height: 50px;
+        margin-top: 10px;
+    }
+    .hint-text {
+        padding: 10px;
+        height: 50px;
+        padding-left: 60px;
+        box-sizing: border-box;
+    }
+    #otherInfo {
+        font-size: 0.7em;
+    }
+    #footer {
+        margin-left: -15px;
+        margin-right: -15px;
+        margin-top: 20px;
+      
+        padding-top: 10px;
+        height: 40px;
+          
+        font-size: 0.7em;
+    }
+    #info-window-close-button {
+        margin-top: 180px;
+    }
 }
