@@ -15,7 +15,7 @@
 
     <div id="topbar">
         Bez-handlu.pl
-        <input id="info-button" type="image" src="img/info-icon.png">
+        <input onClick="showInfoWindow()" id="info-button" type="image" src="img/info-icon.png">
     </div>
 
     <div id="arrows">
@@ -90,7 +90,7 @@
           
         </div>
       
-        <div id="info-window-close-button">
+        <div onclick="hideInfoWindow()" id="info-window-close-button">
           Zamknij
         </div>
     </div>
@@ -98,6 +98,7 @@
 
     <script src="js/additionalData.js"></script>
     <script src="js/script.js"></script> 
+    <script src="js/infoWindow.js"></script>
 
 </body>
 

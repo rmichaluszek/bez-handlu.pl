@@ -8,7 +8,11 @@
   
     background: rgba(0,0,0,0.5);
   
-    z-index: 100;
+    z-index: -1;
+    opacity: 0;
+    overflow: hidden;
+  
+    transition: opacity 0.2s ease-out;
 }
 #info-window {
     width: 400px;
@@ -48,6 +52,7 @@
     height: 60px;
     padding-left: 70px;
     box-sizing: border-box;
+
 }
 
 #hint-image-tradeable-sunday {
