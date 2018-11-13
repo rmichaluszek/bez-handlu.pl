@@ -205,3 +205,97 @@
         margin-top: 180px;
     }
 }
+
+@media only screen and (max-width: 320px) , only screen and (max-height: 460px) {
+    #info-window {
+        position: absolute;
+      
+        margin: 0px;
+        width: auto;
+        height: auto;
+      
+        top: 10px;
+        bottom: 50px;
+        left: 10px;
+        right: 10px;
+
+        box-shadow: 2px 3px 2px rgba(0,0,0,0.2);
+
+        border-radius: 4px 16px;
+        box-sizing: border-box;
+
+        padding: 15px;
+    }
+    #info-window h2 {
+        font-size: 1.2em;
+    }
+    #hint-image-tradeable-sunday {
+        width: 30px;
+        height:30px;
+        border-radius: 1px 4px;
+    }
+    #hint-image-tradeoff-sunday {
+        width: 30px;
+        height: 30px;
+        border-radius: 1px 4px;
+    }
+    #hint-image-tradeoff-holiday-border {
+        width: 26px;
+        height: 26px;
+        border-radius: 1px 4px;
+    }
+    #hint-image-tradeoff-holiday-center {
+        width: 22px;
+        height: 22px;
+        border-radius: 1px 4px;
+        margin-left: 2px;
+        margin-top: 2px;
+    }
+    .hint-section {
+        font-size: 0.7em;
+        height: 30px;
+        margin-top: 5px;
+    }
+    .hint-text {
+        padding: 10px;
+        height: 30px;
+        padding-left: 40px;
+        box-sizing: border-box;
+    }
+    #otherInfo {
+        font-size: 0.7em;
+    }
+    #footer {
+        margin-top: 0;
+        position: absolute;
+        
+        bottom: 0px;
+        width: 100%;
+      
+        padding-top: 10px;
+        height: 40px;
+        background: white;
+        font-size: 0.7em;
+        box-shadow: 0px -2px 4px rgba(0,0,0,0.2);
+    }
+    #info-window-close-button {
+        margin: 0px !important;
+        position: absolute !important;
+        top: auto;
+        left: 100px;
+        right: 100px;
+        width: auto;
+        bottom: 5px;
+    }
+  
+    #info-scroll {
+        overflow: auto;
+        position: absolute;
+        background: #ddddff;  
+        left: 0px;
+        top: 40px;
+        right: 0px;
+        bottom: 50px;
+        padding: 10px;
+    }
+}
