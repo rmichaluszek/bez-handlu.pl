@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles/style.css">
     <link rel="stylesheet" type="text/css" href="styles/infoWindow.css">
+    <link rel="stylesheet" type="text/css" href="styles/dayPopup.css">
     <link rel="shortcut icon" type="image/png" href="img/favicon.png">
 </head>
 
@@ -110,11 +111,20 @@
           Zamknij
         </div>
     </div>
+
+    <div id="day-popup-container">
+        <div id="day-popup-window">
+            <div id="day-popup-header">0.0.0</div>
+            <div id="day-popup-content">...</div>
+            <div onclick="hideDayPopup()" id="day-popup-close-button">Zamknij</div>
+        </div>  
+    </div>
     
 
     <script src="js/additionalData.js"></script>
     <script src="js/script.js"></script> 
     <script src="js/infoWindow.js"></script>
+    <script src="js/dayPopup.js"></script>
 
 </body>
 

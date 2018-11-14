@@ -111,6 +111,8 @@ function updateDays() {
 
     for ( var y = 0; y < 6; y++ ) {
         for ( var x = 0; x < 7; x++ ) {
+          
+            table.getElementsByClassName("cell"+String(y*7+x))[0].onclick = ""; //delete onclick showing day info of days that are tradeable
 
             if (y*7+x+1-firstDay <= 0 ) {
                 table.getElementsByClassName("cell"+String(y*7+x))[0].className = "cell"+String(y*7+x)+ " cell-disabled";
@@ -151,11 +153,15 @@ function updateDays() {
         //apply the tradeoff days from server data
         for ( var i = 0; i < currentYearDisplayingArray[currentMonthDisplaying].length; i++ ) {
             var tradeoffType = currentYearDisplayingArray[currentMonthDisplaying][i][1];
+            var additionalInfo = "Dzien wolny od handlu wyznaczony przez ustawę <a href='https://orka.sejm.gov.pl/proc8.nsf/ustawy/870_u.htm'>o ograniczeniu handlu w niedziele i święta oraz w niektóre inne dni</a>.";
+            if (currentYearDisplayingArray[currentMonthDisplaying][i][2] != null) {
+                additionalInfo = currentYearDisplayingArray[currentMonthDisplaying][i][2];
+            }
             var className = String(currentYearDisplayingArray[currentMonthDisplaying][i][0]-1+firstDay);
             table.getElementsByClassName("cell"+className)[0].className = "cell"+className+" cell-tradeoff-"+tradeoffType;
+            table.getElementsByClassName("cell"+className)[0].onclick = function(e) { showDayPopup(currentYearDisplaying,currentMonthDisplaying+1,event.target.innerHTML,additionalInfo) };
         }
     } 
-    
 }
 
 function spawnNoDaysAvaibleInfo() {
@@ -254,7 +260,6 @@ function getServerData() {
     
     http.onload = () => {
         var result = JSON.parse(http.responseText);
-      console.log(result);
         if (result.status == 'success') {
             daysData = result.data;
             getData();
