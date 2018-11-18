@@ -107,7 +107,7 @@ function updateDays() {
     var daysInMonth = getDaysCountOfMonth(currentYearDisplaying,currentMonthDisplaying)-1;
     
     contentContainer.getElementsByClassName("page-content-month-name")[0].innerHTML = monthsNames[currentMonthDisplaying] +" "+ currentYearDisplaying;
-     contentContainer.getElementsByClassName("page-content-month-name")[0].innerHTML = monthsNames[currentMonthDisplaying] +" "+ currentYearDisplaying;
+    contentContainer.getElementsByClassName("page-content-month-name")[0].innerHTML = monthsNames[currentMonthDisplaying] +" "+ currentYearDisplaying;
 
     for ( var y = 0; y < 6; y++ ) {
         for ( var x = 0; x < 7; x++ ) {
@@ -130,10 +130,7 @@ function updateDays() {
                     table.getElementsByClassName("cell"+String(y*7+x))[0].className = "cell"+String(y*7+x) +" cell-tradeable-sunday";
                 }
             }
-
-     
         }
-
     
     }
     if (table.getElementsByClassName("cell35")[0].className == "cell35 cell-disabled") {
@@ -153,7 +150,7 @@ function updateDays() {
         //apply the tradeoff days from server data
         for ( var i = 0; i < currentYearDisplayingArray[currentMonthDisplaying].length; i++ ) {
             var tradeoffType = currentYearDisplayingArray[currentMonthDisplaying][i][1];
-            var additionalInfo = "Dzien wolny od handlu wyznaczony przez ustawę <a href='https://orka.sejm.gov.pl/proc8.nsf/ustawy/870_u.htm'>o ograniczeniu handlu w niedziele i święta oraz w niektóre inne dni</a>.";
+            let additionalInfo = "Dzien wolny od handlu wyznaczony przez ustawę <a href='https://orka.sejm.gov.pl/proc8.nsf/ustawy/870_u.htm'>o ograniczeniu handlu w niedziele i święta oraz w niektóre inne dni</a>.";
             if (currentYearDisplayingArray[currentMonthDisplaying][i][2] != null) {
                 additionalInfo = currentYearDisplayingArray[currentMonthDisplaying][i][2];
             }
